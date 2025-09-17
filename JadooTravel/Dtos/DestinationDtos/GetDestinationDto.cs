@@ -1,12 +1,7 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-
-namespace JadooTravel.Entities
+﻿namespace JadooTravel.Dtos.DestinationDtos
 {
-    public class Destination
+    public class GetDestinationDto
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string DestinationId { get; set; }
         public string CityCountry { get; set; }
         public string ImageUrl { get; set; }
@@ -14,6 +9,5 @@ namespace JadooTravel.Entities
         public string DayNight { get; set; }
         public int Capacity { get; set; }
         public int Description { get; set; }
-
     }
 }

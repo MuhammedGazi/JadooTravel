@@ -1,6 +1,6 @@
 ﻿namespace JadooTravel.Dtos.CategoryDtos
 {
-    public class ResultDestinationDto
+    public class ResultCategoryDto
     {
         public string CategoryId { get; set; }
 

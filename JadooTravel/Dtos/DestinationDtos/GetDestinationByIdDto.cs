@@ -1,6 +1,6 @@
 ﻿namespace JadooTravel.Dtos.DestinationDtos
 {
-    public class GetDestinationDto
+    public class GetDestinationByIdDto
     {
         public string DestinationId { get; set; }
         public string CityCountry { get; set; }

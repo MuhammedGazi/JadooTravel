@@ -7,6 +7,6 @@
         public decimal Price { get; set; }
         public string DayNight { get; set; }
         public int Capacity { get; set; }
-        public int Description { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -1,0 +1,29 @@
+﻿@{
+	Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+@await Html.PartialAsync("/Views/AdminLayout/AdminHeaderPartial.cshtml")
+<body>
+	<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+		 data-sidebar-position="fixed" data-header-position="fixed">
+
+		@await Html.PartialAsync("/Views/AdminLayout/AdminTopStripPartial.cshtml")
+
+		@await Html.PartialAsync("/Views/AdminLayout/AdminSidebarPartial.cshtml")
+
+		@RenderBody()
+
+	</div>
+	<script src="/Spike-Bootstrap-1.0.0/src/assets/libs/jquery/dist/jquery.min.js"></script>
+	<script src="/Spike-Bootstrap-1.0.0/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="/Spike-Bootstrap-1.0.0/src/assets/js/sidebarmenu.js"></script>
+	<script src="/Spike-Bootstrap-1.0.0/src/assets/js/app.min.js"></script>
+	<script src="/Spike-Bootstrap-1.0.0/src/assets/libs/simplebar/dist/simplebar.js"></script>
+	<!-- solar icons -->
+	<script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+	<script src="/Spike-Bootstrap-1.0.0/src/assets/libs/apexcharts/dist/apexcharts.js"></script>
+</body>
+
+</html>

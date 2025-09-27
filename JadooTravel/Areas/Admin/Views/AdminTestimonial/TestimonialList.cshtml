@@ -1,0 +1,87 @@
+﻿@model List<ResultTestimonialDto>
+@{
+    ViewData["Title"] = "TestimonialList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="body-wrapper">
+    <div class="container-fluid">
+
+        <div class="row mb-4 align-items-center">
+            <div class="col-6">
+                <h3 class="fw-bold"><i class="ti ti-users me-2"></i> Müşteri Referansları Yönetimi</h3>
+            </div>
+            <div class="col-6 text-end">
+                <a href="/Admin/AdminTestimonial/CreateTestimonial" class="btn btn-primary btn-sm">
+                    <i class="ti ti-plus me-1"></i> Yeni Referans Ekle
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 5%;">#</th>
+                                        <th style="width: 15%;">Ad Soyad</th>
+                                        <th style="width: 15%;">Şehir / Ülke</th>
+                                        <th>Yorum</th>
+                                        <th class="text-center" style="width: 15%;">İşlemler</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th scope="row">@item.TestimonialId.Substring(0, 5)...</th>
+
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="@item.ImageUrl" alt="@item.NameSurname" class="rounded-circle me-2" width="40" height="40" onerror="this.onerror=null;this.src='/path/to/default/avatar.jpg';" />
+                                                    <h6 class="mb-0 fw-semibold">@item.NameSurname</h6>
+                                                </div>
+                                            </td>
+
+                                            <td><span class="badge bg-secondary-subtle text-secondary fw-semibold">@item.CityCountry</span></td>
+
+                                            <td>
+                                                <p class="mb-0 small">
+                                                    @(item.Comment.Length > 80 ? item.Comment.Substring(0, 80) + "..." : item.Comment)
+                                                </p>
+                                            </td>
+
+                                            <td class="text-center">
+                                                <div class="btn-group" role="group">
+                                                    <a href="/Admin/AdminTestimonial/UpdateTestimonial/@item.TestimonialId"
+                                                       class="btn btn-outline-info btn-sm"
+                                                       title="Güncelle">
+                                                        <i class="ti ti-edit"></i>
+                                                    </a>
+                                                    <a href="/Admin/AdminTestimonial/DeleteTestimonial/@item.TestimonialId"
+                                                       class="btn btn-outline-danger btn-sm"
+                                                       title="Sil"
+                                                       onclick="return confirm(@item.NameSurname 'adlı kişinin referansını silmek istediğinizden emin misiniz?');">
+                                                        <i class="ti ti-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

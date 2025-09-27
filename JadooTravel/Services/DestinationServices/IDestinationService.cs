@@ -6,6 +6,7 @@ namespace JadooTravel.Services.DestinationServices
     public interface IDestinationService
     {
         Task<List<ResultDestinationDto>> GetAllDestinationAsync();
+        Task<List<ResultDestinationDto>> GetLast4DestinationAsync();
         Task CreateDestinationAsync(CreateDestinationDto createDestinationDto);
         Task UpdateDestinationAsync(UpdateDestinationDto updateDestinationDto);
         Task DeleteDestinationAsync(string id);

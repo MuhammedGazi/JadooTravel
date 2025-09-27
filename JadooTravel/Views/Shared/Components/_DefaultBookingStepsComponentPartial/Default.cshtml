@@ -1,7 +1,10 @@
-﻿
+﻿@model ReservationDestination
 @*
     _DefaultBookingStepsComponentPartial
 *@
+@{
+    var turlar = (List<SelectListItem>)ViewBag.turlar;
+}
 <section id="booking">
 
 	<div class="container">
@@ -33,34 +36,54 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-6 d-flex justify-content-center align-items-start">
-				<div class="col-lg-6 d-flex justify-content-center align-items-start">
-					<div class="card shadow-lg border-info" style="width: 100%; max-width: 500px;">
-						<div class="card-header bg-info text-white text-center">
-							<h5 class="mb-0">Rezervasyon Formu</h5>
-						</div>
-						<div class="card-body">
-							<form method="post">
-								<div class="mb-3">
-									<input type="text" class="form-control" placeholder="Adınız Soyadınız" required />
-								</div>
-								<div class="mb-3">
-									<input type="tel" class="form-control" placeholder="Telefon Numaranız" required />
-								</div>
-								<div class="mb-3">
-									<input type="email" class="form-control" placeholder="Email Adresiniz" required />
-								</div>
-								<div class="mb-3">
-									<textarea rows="3" class="form-control" placeholder="Varsa eklemek istedikleriniz"></textarea>
-								</div>
-								<div class="d-grid">
-									<button type="submit" class="btn btn-info">Rezervasyon Yap</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
+            <div class="col-lg-6 d-flex justify-content-center align-items-center mb-4">
+                <div class="card shadow-lg border-info w-100" style="max-width: 500px;">
+                    <div class="card-header bg-info text-white text-center">
+                        <h5 class="mb-0"><i class="bi bi-calendar-check-fill me-2"></i> Tur Rezervasyon Formu</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" asp-controller="Reservation" asp-action="CreateReservation">
+                            <div class="mb-3">
+                                <label for="adSoyad" class="form-label visually-hidden">Adınız Soyadınız</label>
+                                <input type="text" id="adSoyad" name="NameSurname" class="form-control" placeholder="Adınız Soyadınız" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefon" class="form-label visually-hidden">Telefon Numaranız</label>
+                                <input type="text" id="telefon" name="Phone" class="form-control" placeholder="Telefon Numaranız (Örn: 5xx xxx xx xx)" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label visually-hidden">Email Adresiniz</label>
+                                <input type="text" id="email" name="Email" class="form-control" placeholder="Email Adresiniz" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="turSecimi" class="form-label fw-bold">Seçmek İstediğiniz Tur</label>
+
+                                <select id="turSecimi" name="DestinationId"
+                                        class="form-select"
+                                        required
+                                        asp-for="DestinationId"
+                                        asp-items="turlar">
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="aciklama" class="form-label fw-bold">Varsa Eklemek İstedikleriniz</label>
+                                <textarea id="aciklama" name="Description" rows="3" class="form-control" placeholder="Özel talepleriniz, kişi sayısı vb."></textarea>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-info btn-lg">
+                                    <i class="bi bi-send-fill me-2"></i> Rezervasyon Talebi Oluştur
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted text-center">
+                        Talebiniz bize ulaştıktan sonra en kısa sürede size geri dönüş yapılacaktır.
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div><!-- end of .container-->
 

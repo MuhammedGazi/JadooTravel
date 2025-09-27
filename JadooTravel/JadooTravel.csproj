@@ -14,4 +14,10 @@
     <PackageReference Include="MongoDB.Driver.Core" Version="2.30.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Services\TripPlanServices\" />
+  </ItemGroup>
+
 </Project>

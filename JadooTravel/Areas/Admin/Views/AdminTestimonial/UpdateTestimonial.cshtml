@@ -1,0 +1,65 @@
+﻿@model GetTestimonialByIdDto
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="body-wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3 class="fw-bold">Referans Güncelle</h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="ti ti-edit me-2"></i> Referans Detaylarını Düzenle</h5>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form method="post" asp-action="UpdateTestimonial" asp-controller="AdminTestimonial" asp-route-id="@Model.TestimonialId">
+
+                            <input type="hidden" asp-for="TestimonialId" />
+
+                            <div class="mb-3">
+                                <label asp-for="NameSurname" class="form-label">Müşteri Adı Soyadı:</label>
+                                <input type="text" asp-for="NameSurname" class="form-control" placeholder="Ad Soyad" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="CityCountry" class="form-label">Şehir / Ülke:</label>
+                                <input type="text" asp-for="CityCountry" class="form-control" placeholder="Şehir, Ülke" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="ImageUrl" class="form-label">Müşteri Fotoğraf URL'si:</label>
+                                <input type="url" asp-for="ImageUrl" class="form-control" placeholder="Fotoğraf URL'si" />
+                            </div>
+
+                            <div class="mb-4">
+                                <label asp-for="Comment" class="form-label">Yorum Metni:</label>
+                                <textarea asp-for="Comment" rows="5" class="form-control" placeholder="Yorum metni" required></textarea>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="ti ti-rotate-clockwise-2 me-2"></i> Referansı Güncelle
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

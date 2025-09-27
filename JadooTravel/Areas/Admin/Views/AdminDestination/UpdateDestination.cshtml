@@ -1,0 +1,82 @@
+﻿@model GetDestinationByIdDto
+@{
+    ViewData["Title"] = "UpdateDestination";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="body-wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3 class="fw-bold">Tur İşlemleri</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Tur Listesi</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tur Güncelle</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-sm">
+
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="ti ti-edit me-2"></i> Tur Detaylarını Güncelleme</h5>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form method="post" asp-action="UpdateDestination" asp-controller="AdminDestination">
+
+                            <input type="hidden" asp-for="DestinationId" />
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="CityCountry" class="form-label">Şehir / Ülke Adı:</label>
+                                    <input type="text" asp-for="CityCountry" class="form-control" placeholder="Örn: Roma, İtalya" required />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="ImageUrl" class="form-label">Fotoğraf Yolu (URL):</label>
+                                    <input type="text" asp-for="ImageUrl" class="form-control" placeholder="Örn: https://example.com/rome.jpg" required />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label asp-for="Price" class="form-label">Fiyat (₺):</label>
+                                    <input type="number" asp-for="Price" class="form-control" placeholder="Örn: 9990" required />
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label asp-for="DayNight" class="form-label">Gün / Gece Bilgisi:</label>
+                                    <input type="text" asp-for="DayNight" class="form-control" placeholder="Örn: 5 Gün / 4 Gece" required />
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label asp-for="Capacity" class="form-label">Kapasite (Kişi):</label>
+                                    <input type="number" asp-for="Capacity" class="form-control" placeholder="Örn: 30" required />
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label asp-for="Description" class="form-label">Tur Açıklaması:</label>
+                                <textarea asp-for="Description" rows="6" class="form-control" placeholder="Tur detaylarını ve içerik bilgilerini güncelleyiniz." required></textarea>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="ti ti-rotate-clockwise-2 me-2"></i> Tur Bilgilerini Güncelle
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

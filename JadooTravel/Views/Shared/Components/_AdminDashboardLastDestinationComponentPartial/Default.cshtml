@@ -1,0 +1,58 @@
+﻿@model List<ResultDestinationDto>
+@*
+    _AdminDashboardLastDestinationComponentPartial
+*@
+<div class="row">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-xl-3">
+                <div class="card overflow-hidden shadow-sm">
+                    <div class="position-relative">
+                        <a href="/Admin/AdminDestination/DestinationList/">
+
+                            <img src="@item.ImageUrl"
+                                 class="card-img-top rounded-0"
+                                 alt="@item.CityCountry Resmi"
+                                 style="height: 180px; object-fit: cover;">
+                        </a>
+
+                        <div class="bg-primary rounded-pill p-2 text-white d-inline-flex position-absolute top-0 end-0 mt-3 me-3">
+                            <i class="ti ti-clock-hour-5 fs-4 me-1"></i> @item.DayNight
+                        </div>
+                    </div>
+
+                    <div class="card-body pt-3 p-4">
+                        <h6 class="fw-semibold fs-4">@item.CityCountry</h6>
+
+                        <div class="d-flex align-items-center justify-content-between my-2">
+                            <span class="fs-4 fw-normal text-muted">
+                                <i class="ti ti-users me-1"></i> Max. @item.Capacity Kişi
+                            </span>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between mt-3">
+                            <h6 class="fw-semibold fs-4 mb-0">
+                                @item.Price.ToString("C2")
+                                <span class="ms-2 fw-normal text-muted fs-3">
+                                    <del>@((item.Price - 10).ToString("C2"))</del>
+                                </span>
+                            </h6>
+
+                            <a href="/Admin/AdminDestination/UpdateDestination/@item.DestinationId" class="btn btn-sm btn-light-info text-info">
+                                <i class="ti ti-edit me-1"></i> Detay
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12 py-5 text-center text-muted">
+            <i class="ti ti-planet me-2" style="font-size: 30px;"></i> Listelenecek tur kaydı bulunmamaktadır.
+        </div>
+    }
+</div>

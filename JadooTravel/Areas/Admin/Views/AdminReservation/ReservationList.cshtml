@@ -1,0 +1,85 @@
+﻿@model List<GetReservationWithDestination>
+@{
+    ViewData["Title"] = "ReservationList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="body-wrapper">
+    <div class="container-fluid">
+
+        <div class="row mb-4 align-items-center">
+            <div class="col-12">
+                <h3 class="fw-bold"><i class="ti ti-calendar-check me-2"></i> Tur Rezervasyon Talepleri</h3>
+                <p class="text-muted">Müşteri rezervasyon talepleri ve ilgili tur detayları.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 5%;">#</th>
+                                        <th style="width: 20%;">Müşteri Bilgileri</th>
+                                        <th style="width: 25%;">Rezervasyon Yapılan Tur</th>
+                                        <th style="width: 15%;">İletişim</th>
+                                        <th>Talep Notu</th>
+                                        <th class="text-center" style="width: 10%;">İşlemler</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th scope="row">@item.ReservationId.Substring(0, 5)...</th>
+
+                                            <td>
+                                                <h6 class="mb-0 fw-semibold">@item.NameSurname</h6>
+                                                <span class="text-muted small">@item.Email</span>
+                                            </td>
+
+                                            <td>
+                                                <h6 class="mb-0 fw-semibold">@item.CityCountry</h6>
+                                                <span class="badge bg-primary-subtle text-primary fw-semibold me-2">@item.DayNight</span>
+                                                <span class="badge bg-success-subtle text-success fw-semibold">@item.Price ₺</span>
+                                            </td>
+
+                                            <td>
+                                                <a href="tel:@item.Phone" class="btn btn-sm btn-outline-info me-1" title="Telefonla Ara">
+                                                    <i class="ti ti-phone"></i>
+                                                </a>
+                                                <span class="small text-muted">@item.Phone</span>
+                                            </td>
+
+                                            <td>
+                                                <p class="mb-0 small">
+                                                    @(item.Description.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)
+                                                </p>
+                                            </td>
+
+                                            <td class="text-center">
+                                                <a href="/Admin/AdminReservation/DeleteReservation/@item.ReservationId"
+                                                   class="btn btn-outline-danger btn-sm"
+                                                   title="Talebi Sil"
+                                                   onclick="return confirm('@item.NameSurname adlı kişinin rezervasyon talebini silmek istediğinizden emin misiniz?');">
+                                                    <i class="ti ti-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

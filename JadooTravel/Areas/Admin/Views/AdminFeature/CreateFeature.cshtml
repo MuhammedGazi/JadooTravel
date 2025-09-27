@@ -1,0 +1,63 @@
+﻿@model CreateFeatureDto
+@{
+    ViewData["Title"] = "CreateFeature";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="body-wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h3 class="fw-bold">Yeni Özellik Ekle</h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="ti ti-settings me-2"></i> Yeni Özellik Bilgileri</h5>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form method="post" asp-action="CreateFeature" asp-controller="AdminFeature">
+
+                            <div class="mb-3">
+                                <label asp-for="MainTitle" class="form-label">Ana Başlık (Section Başlığı):</label>
+                                <input type="text" asp-for="MainTitle" class="form-control" placeholder="Örn: Neden Bizi Seçmelisiniz?" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Title" class="form-label">Özellik Başlığı (Kısa Başlık):</label>
+                                <input type="text" asp-for="Title" class="form-control" placeholder="Örn: En İyi Seyahat Rehberleri" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="VideoUrl" class="form-label">Video URL:</label>
+                                <input type="url" asp-for="VideoUrl" class="form-control" placeholder="Örn: https://www.youtube.com/watch?v=..." />
+                            </div>
+
+                            <div class="mb-4">
+                                <label asp-for="Description" class="form-label">Açıklama Metni:</label>
+                                <textarea asp-for="Description" rows="5" class="form-control" placeholder="Özelliğin detaylı açıklamasını giriniz." required></textarea>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="ti ti-circle-plus me-2"></i> Özelliği Ekle
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

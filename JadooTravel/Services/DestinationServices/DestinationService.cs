@@ -42,6 +42,15 @@ namespace JadooTravel.Services.DestinationServices
            return _mapper.Map<GetDestinationByIdDto>(value);
         }
 
+        public async Task<List<ResultDestinationDto>> GetLast4DestinationAsync()
+        {
+            var values=await _destinationCollection.Find(x=>true)
+                .SortByDescending(x=>x.DestinationId)
+                .Limit(4)
+                .ToListAsync();
+            return _mapper.Map<List<ResultDestinationDto>>(values);
+        }
+
         public async Task UpdateDestinationAsync(UpdateDestinationDto updateDestinationDto)
         {
             var value= _mapper.Map<Destination>(updateDestinationDto);

@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using JadooTravel.Services.DestinationServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JadooTravel.ViewComponents
 {
     public class _AdminDashboardGraficComponentPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IDestinationService _destinationService;
+
+        public _AdminDashboardGraficComponentPartial(IDestinationService destinationService)
         {
-            return View();
+            _destinationService = destinationService;
+        }
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _destinationService.GetGraficDestinationAsync();
+            return View(values);
         }
     }
 }

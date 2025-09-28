@@ -201,4 +201,43 @@
   <data name="AıButton" xml:space="preserve">
     <value>Gezi Rehberi Hazırlansın</value>
   </data>
+  <data name="OurVideo" xml:space="preserve">
+    <value>Tanıtım Filmimiz</value>
+  </data>
+  <data name="ForMore" xml:space="preserve">
+    <value>Daha Fazlası İçin</value>
+  </data>
+  <data name="TriSteps" xml:space="preserve">
+    <value>3 Adımda Rezervasyonunuzu Tamamlayın</value>
+  </data>
+  <data name="TourReservationForm" xml:space="preserve">
+    <value>Tur Rezervasyon Formu</value>
+  </data>
+  <data name="NameSurname" xml:space="preserve">
+    <value>Adınız Soyadınız</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Telefon Numaranız (Örn: 5xx xxx xx xx)</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Email Adresiniz</value>
+  </data>
+  <data name="SelectTour" xml:space="preserve">
+    <value>Seçmek İstediğiniz Tur</value>
+  </data>
+  <data name="AdditionalRequests" xml:space="preserve">
+    <value>Varsa Eklemek İstedikleriniz</value>
+  </data>
+  <data name="SpecialRequestsPlaceholder" xml:space="preserve">
+    <value>Özel talepleriniz, kişi sayısı vb.</value>
+  </data>
+  <data name="SubmitReservation" xml:space="preserve">
+    <value>Rezervasyon Talebi Oluştur</value>
+  </data>
+  <data name="FooterNote" xml:space="preserve">
+    <value>Talebiniz bize ulaştıktan sonra en kısa sürede size geri dönüş yapılacaktır.</value>
+  </data>
+  <data name="BookingTitle" xml:space="preserve">
+    <value>Kolay ve Hızlı Rezervasyon</value>
+  </data>
 </root>

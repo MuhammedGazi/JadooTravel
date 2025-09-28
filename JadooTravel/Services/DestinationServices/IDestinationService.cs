@@ -11,5 +11,6 @@ namespace JadooTravel.Services.DestinationServices
         Task UpdateDestinationAsync(UpdateDestinationDto updateDestinationDto);
         Task DeleteDestinationAsync(string id);
         Task<GetDestinationByIdDto> GetDestinationByIdAsync(string id);
+        Task<GraficDestinationDto> GetGraficDestinationAsync();
     }
 }

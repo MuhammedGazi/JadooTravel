@@ -201,4 +201,43 @@
   <data name="AıButton" xml:space="preserve">
     <value>Préparer le Guide de Voyage</value>
   </data>
+  <data name="OurVideo" xml:space="preserve">
+    <value>Notre vidéo promotionnelle</value>
+  </data>
+  <data name="ForMore" xml:space="preserve">
+    <value>Pour en savoir plus</value>
+  </data>
+  <data name="TriSteps" xml:space="preserve">
+    <value>Complétez votre réservation en 3 étapes</value>
+  </data>
+  <data name="TourReservationForm" xml:space="preserve">
+    <value>Formulaire de réservation de tour</value>
+  </data>
+  <data name="NameSurname" xml:space="preserve">
+    <value>Votre nom et prénom</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Votre numéro de téléphone (ex: 5xx xxx xx xx)</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Votre adresse e-mail</value>
+  </data>
+  <data name="SelectTour" xml:space="preserve">
+    <value>Sélectionnez le tour que vous souhaitez</value>
+  </data>
+  <data name="AdditionalRequests" xml:space="preserve">
+    <value>Demandes supplémentaires</value>
+  </data>
+  <data name="SpecialRequestsPlaceholder" xml:space="preserve">
+    <value>Vos demandes spéciales, nombre de personnes, etc.</value>
+  </data>
+  <data name="SubmitReservation" xml:space="preserve">
+    <value>Soumettre la demande de réservation</value>
+  </data>
+  <data name="FooterNote" xml:space="preserve">
+    <value>Après réception de votre demande, nous vous contacterons dans les plus brefs délais.</value>
+  </data>
+  <data name="BookingTitle" xml:space="preserve">
+    <value>Réservation facile et rapide</value>
+  </data>
 </root>

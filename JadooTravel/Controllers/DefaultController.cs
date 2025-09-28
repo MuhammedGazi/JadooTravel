@@ -27,8 +27,7 @@ namespace JadooTravel.Controllers
                 {
                     Expires = DateTimeOffset.UtcNow.AddDays(1)
                 });
-            return RedirectToAction(Request.Headers["Referer"].ToString());
-            //return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
     }
 }

@@ -8,19 +8,19 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
-                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#service">Hizmetlerimiz</a></li>
-                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#destination">Lokasyonlar</a></li>
-                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#booking">Rezervasyon</a></li>
-                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#testimonial">Bize Yazın</a></li>
-                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#!">Giriş Yap</a></li>
-                <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="#!">Kayıt Ol</a></li>
+                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#service">@_localization.Getkey("Services").Value</a></li>
+                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#destination">@_localization.Getkey("Locations").Value</a></li>
+                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#booking">@_localization.Getkey("Reservation").Value</a></li>
+                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#testimonial">@_localization.Getkey("ContactUs").Value</a></li>
+                <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#!">@_localization.Getkey("Login").Value</a></li>
+                <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="#!">@_localization.Getkey("Register").Value</a></li>
                 <li class="nav-item dropdown px-3 px-lg-0">
                     <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">EN</a>
                     <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius:0.3rem;" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">EN</a></li>
-                        <li><a class="dropdown-item" href="#!">TR</a></li>
-                        <li><a class="dropdown-item" href="#!">ESP</a></li>
-                        <li><a class="dropdown-item" href="#!">FR</a></li>
+                        <li><a asp-controller="Default" asp-action="ChangeLanguage" asp-route-culture="en-US" class="dropdown-item">EN</a></li>
+                        <li><a asp-controller="Default" asp-action="ChangeLanguage" asp-route-culture="tr-TR" class="dropdown-item">TR</a></li>
+                        <li><a asp-controller="Default" asp-action="ChangeLanguage" asp-route-culture="fr-FR" class="dropdown-item">FR</a></li>
+                        <li><a asp-controller="Default" asp-action="ChangeLanguage" asp-route-culture="es-ES" class="dropdown-item">ES</a></li>
                     </ul>
                 </li>
             </ul>

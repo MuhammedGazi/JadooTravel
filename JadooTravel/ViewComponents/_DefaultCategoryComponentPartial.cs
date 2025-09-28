@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using JadooTravel.Services.ServiceServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JadooTravel.ViewComponents
 {
     public class _DefaultCategoryComponentPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IServiceService _service;
+
+        public _DefaultCategoryComponentPartial(IServiceService service)
         {
-            return View();
+            _service = service;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var value=await _service.GetAllServiceAsync();
+            return View(value);
         }
     }
 }

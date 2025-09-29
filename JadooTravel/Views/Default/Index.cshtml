@@ -1,31 +1,141 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+	Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 @await Component.InvokeAsync("_DefaultHeadComponentPartial")
 <body>
-    <main class="main" id="top">
-        @await Component.InvokeAsync("_DefaultNavbarComponentPartial")
+	<main class="main" id="top">
+		@await Component.InvokeAsync("_DefaultNavbarComponentPartial")
 
-        @await Component.InvokeAsync("_DefaultFeatureComponentPartial")
+		@await Component.InvokeAsync("_DefaultFeatureComponentPartial")
 
-        @await Component.InvokeAsync("_DefaultCategoryComponentPartial")
+		@await Component.InvokeAsync("_DefaultCategoryComponentPartial")
 
-        @await Component.InvokeAsync("_DefaultDestinationComponentPartial")
+		@await Component.InvokeAsync("_DefaultDestinationComponentPartial")
 
-        @await Component.InvokeAsync("_DefaultBookingStepsComponentPartial")
+		@await Component.InvokeAsync("_DefaultBookingStepsComponentPartial")
 
-        @await Component.InvokeAsync("_DefaultTestimonialComponentPartial")
+		@await Component.InvokeAsync("_DefaultTestimonialComponentPartial")
 
-        @await Component.InvokeAsync("_DefaultContractedBrandsComponentPartial")
+		@await Component.InvokeAsync("_DefaultContractedBrandsComponentPartial")
 
-        @await Component.InvokeAsync("_DefaultAISearchComponentPartial")
+		<section class="pt-6">
 
-        @await Component.InvokeAsync("_DefaultFooterComponentPartial")
-    </main>
-    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
+			<div class="container">
+				<div class="py-8 px-5 position-relative text-center" style="background-color: rgba(223, 215, 249, 0.199);border-radius: 129px 20px 20px 20px;">
+					<div class="position-absolute start-100 top-0 translate-middle ms-md-n3 ms-n4 mt-3"> <img src="/public/assets/img/cta/send.png" style="max-width:70px;" alt="send icon" /></div>
+					<div class="position-absolute end-0 top-0 z-index--1"> <img src="/public/assets/img/cta/shape-bg2.png" width="264" alt="cta shape" /></div>
+					<div class="position-absolute start-0 bottom-0 ms-3 z-index--1 d-none d-sm-block"> <img src="/public/assets/img/cta/shape-bg1.png" style="max-width: 340px;" alt="cta shape" /></div>
+					<div class="row justify-content-center">
+						<div class="col-lg-8 col-md-10">
+							<h2 class="text-secondary lh-1-7 mb-7">@_localization.Getkey("AIDestinationPrompt").Value</h2>
+							<form class="row g-3 align-items-center w-lg-75 mx-auto" onsubmit="return false;">
+								<div class="col-sm">
+									<div class="input-group-icon">
+										<input id="cityInput" class="form-control form-little-squirrel-control"
+												 type="text" placeholder="Gitmek istediğiniz rotayı girin" />
+										<img class="input-box-icon" src="/public/assets/img/cta/mail.svg" width="17" alt="mail" />
+									</div>
+								</div>
+								<div class="col-sm-auto">
+									<button id="btnGen" type="button"
+											class="btn btn-danger orange-gradient-btn fs--1">
+										@_localization.Getkey("AıButton").Value
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="modal fade" id="itineraryModal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">AI Gezi Rotası</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body" id="modalBody">
+						Yükleniyor...
+					</div>
+				</div>
+			</div>
+		</div>
+		@*         @await Component.InvokeAsync("_DefaultAISearchComponentPartial") *@
+
+		@await Component.InvokeAsync("_DefaultFooterComponentPartial")
+	</main>
+	@await Component.InvokeAsync("_DefaultScriptComponentPartial")
 </body>
 </html>
+<script>
+	document.getElementById('btnGen').addEventListener('click', async () => {
+		const city = document.getElementById('cityInput').value.trim();
+		if (!city) {
+			alert("Lütfen bir şehir girin");
+			return;
+		}
+
+		document.getElementById('modalBody').innerHTML = "Yükleniyor...";
+		var modal = new bootstrap.Modal(document.getElementById('itineraryModal'));
+		modal.show();
+
+		const res = await fetch('/Default/GetItinerary', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(city)
+		});
+
+		if (!res.ok) {
+			document.getElementById('modalBody').innerHTML = "Hata oluştu.";
+			return;
+		}
+
+		const text = await res.text();
+		try {
+			const apiResponse = JSON.parse(text);
+
+			let jsonText = apiResponse
+				.candidates?.[0]
+				?.content
+				?.parts?.[0]
+				?.text;
+
+			if (!jsonText) {
+				throw new Error("API yanıtında beklenen gezi rotası metni bulunamadı.");
+			}
+
+			const jsonStartMarker = "```json";
+			const jsonEndMarker = "```";
+
+			if (jsonText.startsWith(jsonStartMarker)) {
+				jsonText = jsonText.substring(jsonStartMarker.length).trimStart();
+			}
+
+			if (jsonText.endsWith(jsonEndMarker)) {
+				jsonText = jsonText.substring(0, jsonText.lastIndexOf(jsonEndMarker)).trimEnd();
+			}
+
+			const data = JSON.parse(jsonText);
+
+			let html = '<ul class="list-group">';
+			data.forEach(item => {
+				html += `<li class="list-group-item">
+						   <h5>${item.title}</h5>
+						   <p>${item.description}</p>
+						   <small><em>${item.tip}</em></small>
+						 </li>`;
+			});
+			html += '</ul>';
+			document.getElementById('modalBody').innerHTML = html;
+		} catch (e) {
+			console.error("Gezi rotası JSON ayrıştırma hatası:", e);
+			document.getElementById('modalBody').innerText = "Hata: Gezi rotası formatı işlenemedi. Detaylar için konsolu kontrol edin. Ham yanıt:\n" + text;
+		}
+	});
+</script>

@@ -7,10 +7,12 @@ namespace JadooTravel.Controllers
     public class DefaultController : Controller
     {
         private LanguageService _localization;
+        private readonly GeminiService _gemini;
 
-        public DefaultController(LanguageService localization)
+        public DefaultController(LanguageService localization, GeminiService gemini)
         {
             _localization = localization;
+            _gemini = gemini;
         }
 
         public IActionResult Index()
@@ -28,6 +30,13 @@ namespace JadooTravel.Controllers
                     Expires = DateTimeOffset.UtcNow.AddDays(1)
                 });
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetItinerary([FromBody] string city)
+        {
+            var output = await _gemini.GenerateItineraryAsync(city, 5);
+            return Content(output, "application/json");
         }
     }
 }

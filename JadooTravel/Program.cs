@@ -38,6 +38,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 #endregion
 
+builder.Services.AddHttpClient<GeminiService>();
+
 // Add services to the container.
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IDestinationService, DestinationService>();

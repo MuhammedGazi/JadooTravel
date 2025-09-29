@@ -49,7 +49,10 @@ Yapısal Özellikler: Areas, View Components, Localization
 
 🚀 Başlangıç
 Projeyi yerel makinenizde kurup çalıştırmak için aşağıdaki adımları izleyin.
-
+<img src="https://github.com/user-attachments/assets/b05c7955-f34b-4ac0-b574-95ff8b3f62a2" alt="Proje Görüntüsü 1" width="300">	<img src="https://github.com/user-attachments/assets/d4e7bd8e-a718-41ea-8b92-de298b197e09" alt="Proje Görüntüsü 2" width="300">	<img src="https://github.com/user-attachments/assets/75588032-f20e-4b27-b175-c59ec79b9c1a" alt="Proje Görüntüsü 3" width="300">
+<img src="https://github.com/user-attachments/assets/38bfd60e-5bd4-42bd-aaa1-0ab8cc69de55" alt="Proje Görüntüsü 4" width="300">	<img src="https://github.com/user-attachments/assets/ec111cb0-493f-42e4-a061-6dba1124521c" alt="Proje Görüntüsü 5" width="300">	<img src="https://github.com/user-attachments/assets/0114fd24-e261-49bf-a680-0c7c0648aec3" alt="Proje Görüntüsü 6" width="300">
+<img src="https://github.com/user-attachments/assets/eeff13c6-053f-400a-930c-d357c92f14f0" alt="Proje Görüntüsü 7" width="300">	<img src="https://github.com/user-attachments/assets/15c9e976-d0ab-4397-a87e-40520b1f7a04" alt="Proje Görüntüsü 8" width="300">	<img src="https://github.com/user-attachments/assets/a9a1e775-a1f9-42de-bbf5-4281fe6b62e7" alt="Proje Görüntüsü 9" width="300">
+<img src="https://github.com/user-attachments/assets/1ee7ea7a-1756-449d-bd6c-a62d028388d7" alt="Proje Görüntüsü 10" width="300">	<img src="https://github.com/user-attachments/assets/b95e58ca-e219-4694-8aad-3dd163bd1311" alt="Proje Görüntüsü 11" width="300">	<img src="https://github.com/user-attachments/assets/1d57940c-e0c5-4ee9-b828-5b0edfcf43c4" alt="Proje Görüntüsü 12" width="300">
 Gereksinimler
 .NET 6 SDK
 

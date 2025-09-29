@@ -1,5 +1,4 @@
 # JadooTravel
-Elbette, projenizin en son belirttiğiniz teknik detayları içeren, kapsamlı ve profesyonel bir README.md dosyası aşağıdadır. Bu metni projenizin ana dizinine README.md olarak kaydedebilirsiniz.
 
 <div align="center">
 <h1 align="center">JadooTravel</h1>
